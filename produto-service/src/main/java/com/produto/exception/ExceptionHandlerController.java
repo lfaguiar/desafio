@@ -1,19 +1,17 @@
 package com.produto.exception;
 
+import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-
-import javax.validation.ConstraintViolationException;
-import java.util.stream.Collectors;
 
 @ControllerAdvice
 public class ExceptionHandlerController {
 
     @ExceptionHandler(ConstraintViolationException.class)
     public ResponseEntity<?> validateError(ConstraintViolationException ex){
-        return ResponseEntity.badRequest().body(ex.getConstraintViolations().stream().map(cv -> cv.getMessage()).collect(Collectors.toList()));
+        return ResponseEntity.badRequest().body(ex.getConstraintName());
     }
 
     @ExceptionHandler(Exception.class)

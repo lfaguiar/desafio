@@ -1,4 +1,4 @@
-package com.desafio.config;
+/*package com.desafio.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
@@ -38,3 +38,4 @@ public class ResourceServerConfiguration extends
                 .antMatchers(HttpMethod.DELETE, "/**").access("#oauth2.hasScope('write')");
     }
 }
+*/

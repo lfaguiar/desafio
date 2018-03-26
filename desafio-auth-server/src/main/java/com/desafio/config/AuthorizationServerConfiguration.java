@@ -1,4 +1,4 @@
-package com.desafio.config;
+/*package com.desafio.config;
 
 import javax.sql.DataSource;
 
@@ -80,4 +80,4 @@ public class AuthorizationServerConfiguration extends
         }
         return encoder;
     }
-}
+}*/

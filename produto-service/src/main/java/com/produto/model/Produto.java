@@ -3,6 +3,7 @@ package com.produto.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -30,8 +31,8 @@ public class Produto implements Serializable {
     @NotEmpty(message = "Descricao requerido")
     private String descricao;
     
-    @Temporal(TemporalType.DATE) 
-    @NotEmpty(message = "Data de Cadastro requerido")
+    @Column(insertable = false, updatable = false, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date dtCadastro;
     
     @Lob

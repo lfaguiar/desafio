@@ -6,11 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/")
-public class AuthController {
-
-    @RequestMapping("/userAuth")
-    public Principal getCurrentLoggedInUser(Principal user) {
-        return user;
-    }
+public class UserRestController {
+	
+	@RequestMapping("/user")
+	public Principal sayHello(Principal principal) {
+		return principal;
+	}
 }

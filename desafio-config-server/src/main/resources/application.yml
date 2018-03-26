@@ -6,9 +6,4 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/lfaguiar/{profile}
-          repos:
-            development:
-              uri: https://github.com/lfaguiar/dev-config-repo
-            production:
-              uri: https://github.com/lfaguiar/prod-config-repo
+          uri: https://github.com/lfaguiar/dev-config-repo
