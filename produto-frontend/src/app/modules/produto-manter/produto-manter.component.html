@@ -1,0 +1,26 @@
+<div class="block-header">
+  <h2>PESQUISA DE PRODUTOS</h2>
+</div>
+<div class="row clearfix">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="card">
+      <div class="header">
+        <div class="row clearfix">
+          <div class="col-xs-12 col-sm-6">
+            <h2><label>PRODUTOS</label></h2>
+          </div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="table-responsive">
+          <span *ngFor="let peca of pecas">
+            <span *ngIf="peca.part_img_url" class="col-lg-3 col-xs-4" (click)=detalharPeca(peca.part_num)>
+              <img class="col-lg-12 col-xs-12 img-responsive thumbnail" src="{{peca.part_img_url}}" />
+              <div class="font-bold">{{peca.name}}</div>
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<!-- #Top Bar -->
+<section>
+  <!-- Left Sidebar -->
+  <aside id="leftsidebar" class="sidebar">
+    <!-- User Info -->
+    <div class="user-info">
+        <div class="image">
+            <img *ngIf="user" src="{{ user.photoUrl }}" width="48" height="48" alt="User">
+            <img *ngIf="!user" src="assets/images/user.png" width="48" height="48" alt="User" />
+        </div>
+        <div class="info-container">
+            <div *ngIf="user">
+                <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ user.name }}</div>
+                <div class="email">{{ user.email }}</div>
+            </div>
+            <div *ngIf="!user">
+                <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Convidado</div>
+            </div>
+            <div class="btn-group user-helper-dropdown">
+                <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
+                <ul class="dropdown-menu pull-right">
+                    <li *ngIf="user" (click)="signOut()"><a><i class="material-icons">input</i>Sair</a></li>
+                    <li *ngIf="!user" routerLink="login"><a><i class="material-icons">input</i>Entrar</a></li>
+                </ul>
+            </div>
+      </div>
+  </div>
+  <!-- #User Info -->
+  <!-- Menu -->
+    <div class="menu">
+        <ul class="list">
+            <li class="header">Navegação Principal</li>
+            <li routerLinkActive="active">
+                <a routerLink="/principal">
+                    <i class="material-icons">home</i>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li routerLinkActive="active">
+                <a routerLink="/manter-produto">
+                    <i class="material-icons">search</i>
+                    <span>Pesquisa de Produtos</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    </aside>
+</section>

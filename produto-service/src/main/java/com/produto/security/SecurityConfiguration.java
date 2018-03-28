@@ -1,4 +1,4 @@
-package com.produto.security;
+/*package com.produto.security;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -33,4 +33,4 @@ public class SecurityConfiguration extends ResourceServerConfigurerAdapter {
     public void configure(ResourceServerSecurityConfigurer resources){
         resources.resourceId(resourceId);
     }
-}
+}*/

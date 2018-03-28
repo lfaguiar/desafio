@@ -37,5 +37,4 @@ public class ResourceServerConfiguration extends
                 .antMatchers(HttpMethod.PATCH, "/**").access("#oauth2.hasScope('write')")
                 .antMatchers(HttpMethod.DELETE, "/**").access("#oauth2.hasScope('write')");
     }
-}
-*/
+}*/
