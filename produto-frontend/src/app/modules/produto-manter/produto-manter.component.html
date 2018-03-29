@@ -12,14 +12,103 @@
         </div>
       </div>
       <div class="body">
-        <div class="table-responsive">
-          <span *ngFor="let peca of pecas">
-            <span *ngIf="peca.part_img_url" class="col-lg-3 col-xs-4" (click)=detalharPeca(peca.part_num)>
-              <img class="col-lg-12 col-xs-12 img-responsive thumbnail" src="{{peca.part_img_url}}" />
-              <div class="font-bold">{{peca.name}}</div>
-            </span>
-          </span>
+        <div *ngIf="!produtoSelecionado">
+          <table id="tabelaID" class="table table-bordered table-striped table-hover js-basic-example dataTable">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Data Cadastro</th>
+                <th>Detalhar</th>
+                <th>Editar</th>
+                <th>Deletar</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th>Nome</th>
+                  <th>Descrição</th>
+                  <th>Data Cadastro</th>
+                  <th>Detalhar</th>
+                  <th>Editar</th>
+                  <th>Deletar</th>
+              </tr>
+            </tfoot>
+            <tbody>
+              <tr *ngFor="let prod of produtos">
+                <th>{{prod.nome}}</th>
+                <th>{{prod.descricao}}</th>
+                <th>{{prod.dtCadastro}}</th>
+                <th>
+                  <button (click)=detalharProduto(prod) type="button" class="btn btn-success waves-effect"><i class="material-icons">dehaze</i></button>
+                </th>
+                <th>
+                  <button type="button" class="btn bg-amber waves-effect"><i class="material-icons">edit</i></button>
+                </th>
+                <th>
+                  <button type="button" class="btn bg-red waves-effect"><i class="material-icons">delete</i></button>
+                </th>
+              </tr>
+            </tbody>
+          </table>
         </div>
+
+        <div *ngIf="produtoSelecionado">
+          <div class="row clearfix">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <div class="form-line">
+                  <input [(ngModel)]="produtoSelecionado.nome" 
+                      class="form-control" placeholder="Nome do Produto" 
+                      [readonly]="isEdit" maxlength="250" [required]="true" >
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6" *ngIf="!isNew">
+              <div class="form-group">
+                <div class="form-line">
+                  <input type="date" class="form-control" 
+                      [(ngModel)]="produtoSelecionado.dtCadastro" 
+                      [readonly]="true"/>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row clearfix">
+              <div class="form-group">
+                <h2 class="card-inside-title">
+                  Descrição
+                </h2>
+                <div class="form-line">
+                  <textarea class="form-control auto-growth" [readonly]="isEdit" [required]="true"
+                      [(ngModel)]="produtoSelecionado.descricao"
+                      placeholder="Entre com a Descrição"></textarea>
+                </div>
+              </div>
+          </div>
+
+          <div class="row clearfix">
+            <div class="form-group">
+                <img *ngIf="produtoSelecionado.img" ng-show="produtoSelecionado.img" 
+                    src="data:image/jpg;base64,{{produtoSelecionado.img}}" />
+            </div>
+          </div>
+          <div class="row clearfix">
+            <div class="form-group">
+              <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                  <input *ngIf="!isEdit" type="file" id="avatar" [required]="true" 
+                      (change)="onFileChange($event)" accept="image/jpeg,image/png" #fileInput>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <button *ngIf="produtoSelecionado" type="button" class="btn bg-green waves-effect" (click)="voltar()">Voltar</button>
+        <button *ngIf="isEdit" type="button" class="btn bg-blue waves-effect" (click)=detalharPeca(peca.part_num)>Alterar Produto</button>
+        <button *ngIf="!isEdit && !isNew" type="button" class="btn bg-blue waves-effect" (click)=acionaInclusao()>Incluir Produto</button>
+        <button *ngIf="!isEdit && isNew" type="button" class="btn bg-blue waves-effect" (click)=incluirProduto()>Incluir Produto</button>
       </div>
     </div>
   </div>

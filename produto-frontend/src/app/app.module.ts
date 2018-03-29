@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule }    from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-login";
 
@@ -38,6 +40,8 @@ let config = new AuthServiceConfig([
     BrowserModule,
     HttpClientModule,
     HttpModule,
+    FormsModule,
+    ReactiveFormsModule,
     SocialLoginModule.initialize(config),
     AppRotaModule
   ],
