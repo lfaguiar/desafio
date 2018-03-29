@@ -32,7 +32,7 @@ public class Produto implements Serializable {
     private String descricao;
     
     @Column(insertable = false, updatable = false, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date dtCadastro;
     
     @Lob

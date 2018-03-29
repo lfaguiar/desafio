@@ -1,4 +1,4 @@
-package com.produto.security;
+/*package com.produto.security;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -47,9 +47,9 @@ public class GoogleOAuth2Authenticator extends RemoteTokenServices {
     @Autowired
     private AccessTokenConverter tokenConverter;
 
-    /**
+    *//**
      * Constructor.
-     */
+     *//*
     public GoogleOAuth2Authenticator() {
         restTemplate = new RestTemplate();
         ((RestTemplate) restTemplate).setErrorHandler(new ResponseErrorHandler());
@@ -132,7 +132,7 @@ public class GoogleOAuth2Authenticator extends RemoteTokenServices {
 
     private static class ResponseErrorHandler extends DefaultResponseErrorHandler {
 
-        ResponseErrorHandler() {
+        ResponseErrorHandler() {CorsFilterConfiguration.java
         }
 
         @Override
@@ -149,4 +149,4 @@ public class GoogleOAuth2Authenticator extends RemoteTokenServices {
         ParameterizedTypeReferenceImpl() {
         }
     }
-}
+}*/
